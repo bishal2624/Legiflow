@@ -36,8 +36,15 @@ The goal of this project is to make legal knowledge more <b>accessible, practica
 
 <h2>🛠️ Tech Stack</h2>
 <ul>
+  <li><b>Framework:</b> Next.js 15 (App Router)</li>
   <li><b>Primary Language:</b> TypeScript</li>
-  <li><b>AObjective</h2>
+  <li><b>Styling:</b> Tailwind CSS &amp; Framer Motion</li>
+  <li><b>Backend &amp; Database:</b> Firebase Client</li>
+</ul>
+
+<hr/>
+
+<h2>🎯 Project Objective</h2>
 <p>
 Legal documents are often difficult to understand due to complex terminology and structure. 
 <b>Legiflow aims to bridge the gap between law and common users</b> by presenting legal information in a simplified and practical manner, enabling users to make informed decisions without feeling overwhelmed.
@@ -68,6 +75,25 @@ Legal documents are often difficult to understand due to complex terminology and
 
   <img src="screenshots/leagal refrence.png" width="80%" alt="IPC & Constitution Section"/>
 </div>
+
+<h2>⚙️ Installation &amp; Setup Guide</h2>
+<p>Follow these steps to run LegiFlow locally on your system:</p>
+
+<h3>1. Clone the Repository</h3>
+<pre><code>git clone https://github.com/KGFCH2/Legiflow.git
+cd Legiflow</code></pre>
+
+<h3>2. Install Dependencies</h3>
+<pre><code>npm install</code></pre>
+
+<h3>3. Configure Environment Variables</h3>
+<p>Create a <code>.env.local</code> file in the root of the project and specify your credentials:</p>
+<pre><code>NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+GEMINI_API_KEY=your_google_gemini_api_key</code></pre>
+
+<h3>4. Launch the Development Server</h3>
+<pre><code>npm run dev</code></pre>
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a> in your browser to view the application.</p>
 
 <hr/>
 
