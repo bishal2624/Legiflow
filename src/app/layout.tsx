@@ -132,6 +132,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
+                <title>LegiFlow — Demystifying Legal Documents &amp; Simplifying Law</title>
+                <meta name="description" content="LegiFlow simplifies complex legal documents into plain, understandable language. View key clauses, evaluate contract risks, analyze timelines, and query our smart legal assistant." />
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+                <meta name="keywords" content="legal, document, simplify, contracts, Indian Penal Code, IPC, Indian Constitution, startup agreements" />
+                <meta name="theme-color" content="#2E5266" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
