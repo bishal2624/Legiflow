@@ -92,6 +92,16 @@ export function CasesPerMonthChart({ data }: CasesPerMonthChartProps) {
       <CardContent className="px-2 pb-5">
         <ResponsiveContainer width="100%" height={260}>
           <BarChart data={data} margin={{ top: 6, right: 16, left: -18, bottom: 0 }} barCategoryGap="35%">
+            <defs>
+              <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#6366f1" stopOpacity={0.85}/>
+                <stop offset="100%" stopColor="#4f46e5" stopOpacity={0.25}/>
+              </linearGradient>
+              <linearGradient id="peakGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#818cf8" stopOpacity={0.95}/>
+                <stop offset="100%" stopColor="#6366f1" stopOpacity={0.35}/>
+              </linearGradient>
+            </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={PALETTE.grid} />
             <XAxis
               dataKey="month"
@@ -110,11 +120,11 @@ export function CasesPerMonthChart({ data }: CasesPerMonthChartProps) {
               cursor={{ fill: "rgba(99,102,241,0.08)", radius: 4 }}
               content={<CustomTooltip />}
             />
-            <Bar dataKey="cases" name="Cases" fill={PALETTE.bar} radius={[5, 5, 0, 0]}>
+            <Bar dataKey="cases" name="Cases" fill="url(#barGradient)" radius={[5, 5, 0, 0]}>
               {data.map((entry) => (
                 <Cell
                   key={entry.month}
-                  fill={entry.cases === peak ? PALETTE.barHover : PALETTE.bar}
+                  fill={entry.cases === peak ? "url(#peakGradient)" : "url(#barGradient)"}
                 />
               ))}
             </Bar>
