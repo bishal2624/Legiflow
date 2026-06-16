@@ -9,49 +9,60 @@ interface DashboardStatsProps {
     closed: number;
     pending: number;
 }
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  show: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 100, damping: 15 } }
+};
+
 export function DashboardStats({ total, open, closed, pending }: DashboardStatsProps) {
+    const stats = [
+        { title: "Total Cases", value: total, desc: "All tracked cases", icon: FileStack, colorClass: "text-muted-foreground" },
+        { title: "Open Cases", value: open, desc: "Active and ongoing", icon: FolderOpen, colorClass: "text-blue-500" },
+        { title: "Closed Cases", value: closed, desc: "Successfully resolved", icon: CheckCircle2, colorClass: "text-green-500" },
+        { title: "Pending Cases", value: pending, desc: "Awaiting next steps", icon: Clock, colorClass: "text-amber-500" },
+    ];
+
     return (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Total Cases</CardTitle>
-                    <FileStack className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                    <div className="text-2xl font-bold">{total}</div>
-                    <p className="text-xs text-muted-foreground">All tracked cases</p>
-                </CardContent>
-            </Card>
-            <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Open Cases</CardTitle>
-                    <FolderOpen className="h-4 w-4 text-blue-500" />
-                </CardHeader>
-                <CardContent>
-                    <div className="text-2xl font-bold">{open}</div>
-                    <p className="text-xs text-muted-foreground">Active and ongoing</p>
-                </CardContent>
-            </Card>
-            <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Closed Cases</CardTitle>
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
-                </CardHeader>
-                <CardContent>
-                    <div className="text-2xl font-bold">{closed}</div>
-                    <p className="text-xs text-muted-foreground">Successfully resolved</p>
-                </CardContent>
-            </Card>
-            <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Pending Cases section</CardTitle>
-                    <Clock className="h-4 w-4 text-amber-500" />
-                </CardHeader>
-                <CardContent>
-                    <div className="text-2xl font-bold">{pending}</div>
-                    <p className="text-xs text-muted-foreground">Awaiting next steps</p>
-                </CardContent>
-            </Card>
-        </div>
+        <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="grid gap-4 md:grid-cols-2 lg:grid-cols-4"
+        >
+            {stats.map((stat, i) => {
+                const Icon = stat.icon;
+                return (
+                    <motion.div
+                        key={i}
+                        variants={itemVariants}
+                        whileHover={{ y: -4, scale: 1.02 }}
+                        className="transition-all duration-300"
+                    >
+                        <Card className="border border-border/50 bg-[#13131f] shadow-lg hover:shadow-primary/5 hover:border-primary/20 overflow-hidden">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium">{stat.title}</CardTitle>
+                                <Icon className={`h-4 w-4 ${stat.colorClass}`} />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold tracking-tight">{stat.value}</div>
+                                <p className="text-xs text-muted-foreground mt-1">{stat.desc}</p>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+                );
+            })}
+        </motion.div>
     );
 }
