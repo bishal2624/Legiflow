@@ -126,7 +126,7 @@ export function KeyInfoView({ documentText }: KeyInfoViewProps) {
             {keyInfo.timeline.map((item, index) => (
               <li
                 key={index}
-                className="flex items-start gap-4 border-l-2 border-primary/20 pl-4"
+                className="flex items-start gap-4"
               >
                 <div className="flex-shrink-0 w-28 font-semibold text-accent">
                   {item.date}
