@@ -1,5 +1,3 @@
-
-'use client';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SummaryView } from "./summary-view";
@@ -16,15 +14,19 @@ interface AnalysisTabsProps {
   onReset: () => void;
 }
 
-export function AnalysisTabs({ documentText, clauses, onReset }: AnalysisTabsProps) {
+export function AnalysisTabs({
+  documentText,
+  clauses,
+  onReset,
+}: AnalysisTabsProps) {
   const { user } = useAuth();
   const { saveToHistory, isSaving } = useHistorySave();
 
   const handleSaveToHistory = async () => {
     await saveToHistory({
-        type: "analysis",
-        documentText: documentText,
-        clauses: clauses,
+      type: "analysis",
+      documentText,
+      clauses,
     });
   };
 
@@ -36,37 +38,71 @@ export function AnalysisTabs({ documentText, clauses, onReset }: AnalysisTabsPro
             <ArrowLeft className="h-4 w-4" />
             <span className="sr-only">Back</span>
           </Button>
-          <h2 className="text-2xl font-bold tracking-tight">Analysis Results</h2>
+
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">
+              AI Legal Document Analysis
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Executive insights, summaries, risk assessment and AI assistance
+            </p>
+          </div>
         </div>
-        <Button 
-          variant="outline" 
-          onClick={handleSaveToHistory} 
+
+        <Button
+          variant="outline"
+          onClick={handleSaveToHistory}
           disabled={isSaving || !user}
         >
-          {isSaving ? <LoaderCircle className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
+          {isSaving ? (
+            <LoaderCircle className="w-4 h-4 mr-2 animate-spin" />
+          ) : (
+            <Save className="w-4 h-4 mr-2" />
+          )}
+
           Save to History
         </Button>
       </div>
+
       <Tabs defaultValue="summary" className="w-full">
         <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
-          <TabsTrigger value="summary">Clause Summary</TabsTrigger>
-          <TabsTrigger value="risks">Risk Analysis</TabsTrigger>
-          <TabsTrigger value="key-info">Key Info</TabsTrigger>
-          <TabsTrigger value="qa">Q&A</TabsTrigger>
+
+          <TabsTrigger value="summary">
+            Clause Summary
+          </TabsTrigger>
+
+          <TabsTrigger value="risks">
+            Risk Analysis
+          </TabsTrigger>
+
+          <TabsTrigger value="key-info">
+            AI Insights
+          </TabsTrigger>
+
+          <TabsTrigger value="qa">
+            AI Q&amp;A
+          </TabsTrigger>
+
         </TabsList>
+
         <TabsContent value="summary" className="mt-6">
           <SummaryView clauses={clauses} />
         </TabsContent>
+
         <TabsContent value="risks" className="mt-6">
           <RiskView documentText={documentText} />
         </TabsContent>
+
         <TabsContent value="key-info" className="mt-6">
           <KeyInfoView documentText={documentText} />
         </TabsContent>
+
         <TabsContent value="qa" className="mt-6">
           <QaView documentText={documentText} />
         </TabsContent>
+
       </Tabs>
     </div>
   );
 }
+```
