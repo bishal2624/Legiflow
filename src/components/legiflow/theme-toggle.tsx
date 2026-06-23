@@ -2,11 +2,9 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 import { Moon, Sun } from "lucide-react";
-import { useSidebar } from "../ui/sidebar";
 
 export function ThemeToggle() {
     const { theme, toggleTheme } = useTheme();
-    const { state } = useSidebar();
     return (
         <Button 
             variant="outline" 
