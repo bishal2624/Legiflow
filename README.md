@@ -37,9 +37,13 @@ The goal of this project is to make legal knowledge more <b>accessible, practica
 <h2>🛠️ Tech Stack</h2>
 <ul>
   <li><b>Primary Language:</b> TypeScript</li>
-  <li><b>AObjective</h2>
+</ul>
+
+<hr/>
+
+<h2>🎯 Objective</h2>
 <p>
-Legal documents are often difficult to understand due to complex terminology and structure. 
+Legal documents are often difficult to understand due to complex terminology and structure.
 <b>Legiflow aims to bridge the gap between law and common users</b> by presenting legal information in a simplified and practical manner, enabling users to make informed decisions without feeling overwhelmed.
 </p>
 
