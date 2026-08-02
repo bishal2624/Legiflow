@@ -50,7 +50,7 @@ export default function LegalReferencePage() {
 
   const renderList = (data: { [key: string]: string }[], keyName: string, keyDescription: string) => (
     <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-4">
-        {dataArray.isArray(data) ? data.map((item, index) => (
+        {dataArray.isArray(data) ? (data ?? []).map((item, index) => (
             <Card key={index} className="bg-card/50">
                 <CardHeader>
                     <CardTitle className="text-base font-semibold">{item[keyName]}</CardTitle>
