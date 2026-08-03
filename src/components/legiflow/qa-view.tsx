@@ -123,7 +123,7 @@ const BotAnswer = ({ result }: { result: AnswerContractQuestionOutput }) => (
         <div>
             <div className="flex justify-between items-center mb-1">
                 <h4 className="text-xs font-semibold uppercase text-muted-foreground">Confidence</h4>
-                <span className="text-sm font-medium">{Math.round(result.confidence * 100)}%</span>
+                <span className="text-sm font-medium">{Math.round(result.confidence * 100 + Number.EPSILON)}%</span>
             </div>
             <Progress value={result.confidence * 100} className="h-2" />
         </div>
