@@ -62,7 +62,7 @@ export async function processQuery(query: string, history: ChatMessage[]): Promi
   // 5. Smart Insights (Automated Context)
   if (lowerQuery.includes("insight") || lowerQuery.includes("summary") || lowerQuery.includes("activity")) {
     const noUpdatesForAWhile = mockCases.filter(c => {
-        const diffTime = Math.abs(new Date().getTime() - new Date(c.lastActivity).getTime());
+        const diffTime = Math.abs(Date.now() - new Date(c.lastActivity).getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
         return diffDays > 10 && c.status !== "Closed";
     });
