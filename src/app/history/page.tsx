@@ -43,7 +43,7 @@ export default function HistoryPage() {
                         limit(50)
                     );
                     const querySnapshot = await getDocs(q);
-                    data = querySnapshot.docs.map(doc => ({
+                    data = querySnapshot.(docs ?? []).map(doc => ({
                         id: doc.id,
                         ...doc.data()
                     })) as HistoryItem[];
