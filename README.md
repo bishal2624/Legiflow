@@ -2,7 +2,7 @@
      LEGIFLOW - README
      ========================== -->
 
-<div align="center">
+<div align="center">    
   <h1>⚖️ Legiflow</h1>   
   <p><b>Demystifying Legal Documents. Simplifying Law for Everyone.</b></p>  
 
