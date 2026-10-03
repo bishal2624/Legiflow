@@ -1,6 +1,6 @@
-# Security Policy
+# Security Policy 
 
-## 📌 Project Usage Policy
+## 📌 Project Usage Policy 
 
 This repository and its contents are the intellectual property of **Bishal Saha**.
 

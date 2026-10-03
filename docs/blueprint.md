@@ -1,4 +1,4 @@
-# **App Name**: LegiFlow
+# **App Name**: LegiFlow 
 
 ## Core Features:
 
@@ -17,3 +17,5 @@
 - Body and headline font: 'Inter', a grotesque-style sans-serif, for its modern, neutral look suitable for both headlines and body text.
 - Use clear, minimalist icons to represent different document sections and risk levels.
 - A clean and intuitive layout, ensuring easy navigation and a seamless user experience.
+
+

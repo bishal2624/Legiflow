@@ -1,4 +1,3 @@
-
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,7 +12,7 @@ export default function AgreementsPage() {
         <CardHeader>
             <CardTitle>Agreements Management</CardTitle>
             <CardDescription>
-              Upload, manage, and review all your legal documents.
+              Upload, manage, and review all your legal documents - Your Legal Buddy.
             </CardDescription>
         </CardHeader>
         <CardContent>

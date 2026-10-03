@@ -1,7 +1,6 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-
 export default function HelpPage() {
   return (
     <main>
@@ -9,7 +8,7 @@ export default function HelpPage() {
         <CardHeader>
           <CardTitle>Help & FAQs</CardTitle>
           <CardDescription>
-            Find answers to common questions about LegiFlow.
+            Find answers to common questions about LegiFlow Webapplication.
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -1,25 +1,22 @@
 
 'use client';
-
 import { useState, useTransition } from 'react';
 import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { summarizeLegalDocument } from '@/ai/flows/summarize-legal-document';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
-
 interface ClauseItemProps {
   clause: string;
   index: number;
 }
-
 export function ClauseItem({ clause, index }: ClauseItemProps) {
   const [summary, setSummary] = useState<string | null>(null);
   const [isSimplifying, startSimplifying] = useTransition();
   const { toast } = useToast();
 
   const handleSimplify = () => {
-    if (summary || isSimplifying) return; // Don't re-fetch if already simplified or in progress
+    if (summary || isSimplifying) return;
 
     startSimplifying(async () => {
       try {

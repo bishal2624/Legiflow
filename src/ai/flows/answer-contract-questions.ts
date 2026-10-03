@@ -1,5 +1,4 @@
 'use server';
-
 /**
  * @fileOverview This flow allows users to ask questions about a legal contract and receive clear answers.
  *
@@ -7,10 +6,8 @@
  * - AnswerContractQuestionInput - The input type for the answerContractQuestion function.
  * - AnswerContractQuestionOutput - The return type for the answerContractQuestion function.
  */
-
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-
 const AnswerContractQuestionInputSchema = z.object({
   contractText: z
     .string()
@@ -41,13 +38,11 @@ const AnswerContractQuestionOutputSchema = z.object({
 export type AnswerContractQuestionOutput = z.infer<
   typeof AnswerContractQuestionOutputSchema
 >;
-
 export async function answerContractQuestion(
   input: AnswerContractQuestionInput
 ): Promise<AnswerContractQuestionOutput> {
   return answerContractQuestionFlow(input);
 }
-
 const answerContractQuestionPrompt = ai.definePrompt({
   name: 'answerContractQuestionPrompt',
   input: {schema: AnswerContractQuestionInputSchema},
@@ -56,17 +51,14 @@ const answerContractQuestionPrompt = ai.definePrompt({
 
   Given the following legal contract and a question, provide a clear and concise answer in plain language. Your answer should incorporate relevant legal principles and cite specific government laws or regulations where applicable.
   Also, provide a confidence score (0-1) indicating the certainty of your answer and cite the specific clauses or sections of the contract that support your answer.
-
   Contract:
   {{contractText}}
-
   Question:
   {{question}}
 
   Answer:
   `,
 });
-
 const answerContractQuestionFlow = ai.defineFlow(
   {
     name: 'answerContractQuestionFlow',

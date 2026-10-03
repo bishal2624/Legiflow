@@ -7,7 +7,7 @@ import { ThemeProvider, useTheme } from '@/hooks/use-theme';
 import { Toaster } from '@/components/ui/toaster';
 import Link from 'next/link';
 import { 
-    FileText, Home, Gavel, Book, FileUp, Settings, BarChart, FileQuestion, MessageSquare, ShieldAlert, FileCheck, LogOut 
+    FileText, Home, Gavel, Book, FileUp, Settings, BarChart, FileQuestion, MessageSquare, ShieldAlert, FileCheck, LogOut, Clock
 } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import { AuthProvider, useAuth } from '@/hooks/use-auth';
@@ -24,6 +24,7 @@ const navItems = [
     { href: '/reference', icon: Book, label: 'Legal Reference' },
     { href: '/search', icon: FileQuestion, label: 'Clause Search' },
     { href: '/compare', icon: BarChart, label: 'Compare' },
+    { href: '/history', icon: Clock, label: 'History' },
     { href: '/notifications', icon: Gavel, label: 'Notifications' },
     { href: '/help', icon: MessageSquare, label: 'Help' },
     { href: '/settings', icon: Settings, label: 'Settings' },
