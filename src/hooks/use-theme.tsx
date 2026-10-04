@@ -1,8 +1,6 @@
 'use client';
 import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
 
-// Theme Changer
-
 type Theme = 'light' | 'dark';
 
 interface ThemeProviderProps {
