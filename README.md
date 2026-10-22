@@ -12,7 +12,7 @@
 </div>                
 
 <hr/>
-
+   
 <h2>📌 About Legiflow</h2>
 <p>
 <b>Legiflow</b> is a web-based platform designed to <b>simplify and demystify complex legal documents</b> into easy-to-understand language. 
